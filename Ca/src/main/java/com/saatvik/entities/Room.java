@@ -1,5 +1,4 @@
 package com.saatvik.entities;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,17 +8,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
 import java.util.List;
-//connection with  mongoDb database
+
 @Document(collection = "rooms")
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Room {
-
     @Id
-    private int id;
+    private String id;//Mongo db : unique identifier
     private String roomId;
-    List<Message> message = new ArrayList<>();
+    private List<Message> messages = new ArrayList<>();
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
 
 }
